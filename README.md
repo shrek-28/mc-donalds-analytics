@@ -1,5 +1,8 @@
 # Mc-Donalds-Analytics
 
+This is a mini-analysis for the McDonalds Menu Dataset on Kaggle.
+The link for the dataset: [Link](https://www.kaggle.com/datasets/mcdonalds/nutrition-facts) 
+
 # Table of Contents
 - [Table Creation Commands](#table-creation-commands)
 - [Analytics](#analytics)
