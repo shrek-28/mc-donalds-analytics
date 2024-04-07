@@ -140,3 +140,89 @@ Result:
 | McFlurry with Oreo Cookies (Small) | 0.5 |
 | McFlurry with Oreo Cookies (Medium) | 1 |
 | McFlurry with Reese's Peanut Butter Cups (Medium) | 1 | 
+
+5. How does the sodium content vary across different categories?
+````sql
+SELECT category, round(avg(sodium),2) as avg_sodium from mc_donalds_menu
+group by category;
+````
+Result:
+| category | avg_sodium |
+| Salads | 588.33 |
+| Breakfast | 1211.07 |
+| Beef and Pork | 1020.67 |
+| Smoothies and Shakes | 183.57 |
+| Desserts | 117.14 |
+| Coffee and Tea | 136.89 |
+| Beverages | 41.48 |
+| Snacks and Sides | 395.77 |
+| Chicken and Fish | 1257.78 |
+
+6. Which item has the highest cholesterol content?
+````sql
+SELECT item, cholesterol from mc_donalds_menu 
+where (cholesterol =(select max(cholesterol) from mc_donalds_menu));
+````
+Result:
+| item | cholesterol |
+| --- | --- |
+| Big Breakfast with Hotcakes (Regular Biscuit) | 575 |
+| Big Breakfast with Hotcakes (Large Biscuit) | 575 |
+
+7. Which menu item provides the highest amount of protein?
+````sql
+SELECT item, protein from mc_donalds_menu 
+where (protein = (select max(protein) from mc_donalds_menu));
+````
+Result:
+| item | protein |
+| --- | --- |
+| Chicken McNuggets (40 piece) | 87 |
+
+8. How does the dietary fiber content vary across different categories?
+````sql
+SELECT category, round(avg(dietary_fiber),2) as avg_fiber from mc_donalds_menu 
+group by category;
+````
+Result:
+| category | avg_fiber |
+| --- | --- |
+| Salads | 4.50 |
+| Breakfast | 3.26 |
+| Beef and Pork | 2.53 |
+| Smoothies and Shakes | 1.46 |
+| Desserts | 1.00 |
+| Coffee and Tea | 0.78 |
+| Beverages | 0.04 |
+| Snacks and Sides | 1.54 |
+| Chicken and Fish | 2.93 |
+
+9. How does the sugar content vary across different categories?
+````sql
+SELECT category, round(avg(sugars),2) as avg_sugar from mc_donalds_menu
+group by category;
+````
+Result:
+| category | avg_sugar |
+| --- | --- |
+| Salads | 6.83 |
+| Breakfast | 8.26 |
+| Beef and Pork | 8.80 |
+| Smoothies and Shakes | 77.89 |
+| Desserts | 26.14 |
+| Coffee and Tea | 39.61 |
+| Beverages | 27.85 |
+| Snacks and Sides | 4.08 |
+| Chicken and Fish | 7.33 |
+
+10. Which menu item provides the highest amount of vitamin C?
+````sql
+SELECT item, vitamin_c_daily from mc_donalds_menu
+where vitamin_c_daily = (select max(vitamin_c_daily) from mc_donalds_menu);
+````
+Result:
+| item | vitamin_c_daily |
+| --- |--- |
+| Minute Maid Orange Juice (Large) | 240 |
+
+
